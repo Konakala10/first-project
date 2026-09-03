@@ -1,0 +1,218 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  width: 400px;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.logo {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.auth-button {
+  width: 100%;
+  height: 50px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.auth-button:hover {
+  background: #f7f7f7;
+}
+
+.divider {
+  margin: 25px 0;
+  border-top: 1px solid #ddd;
+}
+
+.divider span {
+  position: relative;
+  top: -12px;
+  background: white;
+  padding: 0 10px;
+  color: #777;
+}
+
+.terms {
+  font-size: 12px;
+  color: #777;
+  line-height: 1.5;
+}
+
+/* Google Consent Popup */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+.consent-modal {
+  width: 450px;
+  max-width: 90%;
+  background: white;
+
+  padding: 30px;
+  border-radius: 16px;
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.consent-modal h2 {
+  margin-top: 0;
+}
+
+.consent-modal p {
+  color: #555;
+  line-height: 1.5;
+}
+
+.information {
+  background: #f5f5f5;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.information p {
+  margin: 8px 0;
+}
+
+.privacy {
+  font-weight: bold;
+}
+
+.small-text {
+  font-size: 12px;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.modal-buttons button {
+  flex: 1;
+  height: 45px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cancel-button {
+  background: white;
+  border: 1px solid #ccc;
+}
+
+.google-button {
+  background: #111;
+  color: white;
+  border: none;
+}
+
+/* Vin Home */
+
+.home-container {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #f5f5f5;
+}
+
+.home-card {
+  width: 400px;
+
+  background: white;
+
+  padding: 40px;
+
+  border-radius: 16px;
+
+  text-align: center;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.profile-image {
+  width: 90px;
+  height: 90px;
+
+  border-radius: 50%;
+
+  margin: 20px 0;
+}
+
+.home-card h2 {
+  margin: 10px 0;
+}
+
+.home-card p {
+  color: #666;
+}
+
+.login-message {
+  margin: 25px 0;
+}
+
+.signout-button {
+  width: 100%;
+  height: 45px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #111;
+  color: white;
+
+  font-size: 15px;
+
+  cursor: pointer;
+}
+
+.signout-button:hover {
+  opacity: 0.85;
+}

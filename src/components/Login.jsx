@@ -39,134 +39,266 @@ function Login({ onLogin }) {
 
   // Email Login
   const handleEmailLogin = () => {
-    alert("Email login will be added here.");
+    alert("Email login will be added in the next version.");
   };
 
-  return (
-    <>
-      {showMobileLogin ? (
+  // Mobile Login
+  if (showMobileLogin) {
+    return (
+      <div className="auth-page">
         <MobileLogin />
-      ) : (
-        <div className="login-container">
-          <div className="login-card">
+      </div>
+    );
+  }
 
-            {/* Logo */}
-            <div className="logo">
-              Vin
+  return (
+    <div className="auth-page">
+
+      {/* Left side - Vin branding */}
+      <div className="brand-section">
+
+        <div className="brand-content">
+
+          <div className="brand-logo">
+            Vin<span>.</span>
+          </div>
+
+          <h1>
+            Your account.
+            <br />
+            <span>Your experience.</span>
+          </h1>
+
+          <p className="brand-description">
+            One simple and secure place to access
+            everything you need with Vin.
+          </p>
+
+          <div className="brand-features">
+
+            <div className="feature">
+              <div className="feature-icon">✓</div>
+              <div>
+                <strong>Simple</strong>
+                <p>Sign in with the method you prefer.</p>
+              </div>
             </div>
 
-            {/* Heading */}
-            <h1>Welcome to Vin</h1>
+            <div className="feature">
+              <div className="feature-icon">✓</div>
+              <div>
+                <strong>Secure</strong>
+                <p>Your account is protected by Firebase.</p>
+              </div>
+            </div>
+
+            <div className="feature">
+              <div className="feature-icon">✓</div>
+              <div>
+                <strong>Connected</strong>
+                <p>Access your Vin account from anywhere.</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div className="brand-footer">
+          © 2026 Vin. All rights reserved.
+        </div>
+
+      </div>
+
+
+      {/* Right side - Login */}
+      <div className="auth-section">
+
+        <div className="auth-card">
+
+          <div className="mobile-logo">
+            Vin<span>.</span>
+          </div>
+
+          <div className="auth-header">
+
+            <h2>Welcome to Vin</h2>
 
             <p>
-              Sign in or create your account to continue.
-            </p>
-
-            {/* Login Options */}
-            <div className="login-options">
-
-              {/* Google Login */}
-              <button
-                type="button"
-                className="login-option-button"
-                onClick={handleGoogleLogin}
-                disabled={loading}
-              >
-                <span className="login-icon">G</span>
-
-                <span>
-                  {loading
-                    ? "Connecting..."
-                    : "Continue with Google"}
-                </span>
-              </button>
-
-              {/* Mobile Login */}
-              <button
-                type="button"
-                className="login-option-button"
-                onClick={() => setShowMobileLogin(true)}
-              >
-                <span className="login-icon">☎</span>
-
-                <span>
-                  Continue with Mobile
-                </span>
-              </button>
-
-              {/* Email Login */}
-              <button
-                type="button"
-                className="login-option-button"
-                onClick={handleEmailLogin}
-              >
-                <span className="login-icon">✉</span>
-
-                <span>
-                  Continue with Email
-                </span>
-              </button>
-
-            </div>
-
-            {/* Divider */}
-            <div className="divider">
-              <span>or</span>
-            </div>
-
-            {/* Terms */}
-            <p className="terms">
-              By continuing, you agree to Vin's
-              <br />
-              Terms of Service and Privacy Policy.
+              Sign in or create an account to continue.
             </p>
 
           </div>
+
+
+          {/* Google */}
+          <button
+            type="button"
+            className="google-login-button"
+            onClick={() => setShowConsent(true)}
+            disabled={loading}
+          >
+
+            <span className="google-icon">G</span>
+
+            <span>
+              Continue with Google
+            </span>
+
+          </button>
+
+
+          {/* Divider */}
+          <div className="auth-divider">
+            <span>or</span>
+          </div>
+
+
+          {/* Email */}
+          <div className="input-group">
+
+            <label htmlFor="email">
+              Email address
+            </label>
+
+            <input
+              id="email"
+              type="email"
+              placeholder="Enter your email address"
+            />
+
+          </div>
+
+
+          <button
+            type="button"
+            className="primary-button"
+            onClick={handleEmailLogin}
+          >
+            Continue
+          </button>
+
+
+          {/* Mobile */}
+          <button
+            type="button"
+            className="secondary-button"
+            onClick={() => setShowMobileLogin(true)}
+          >
+            <span>☎</span>
+            Continue with mobile
+          </button>
+
+
+          {/* Existing user */}
+          <p className="account-switch">
+            Already have an account?
+            <button
+              type="button"
+              onClick={handleEmailLogin}
+            >
+              Sign in
+            </button>
+          </p>
+
+
+          {/* Terms */}
+          <p className="terms-text">
+            By continuing, you agree to Vin's{" "}
+            <a href="#terms">Terms of Service</a>
+            {" "}and{" "}
+            <a href="#privacy">Privacy Policy</a>.
+          </p>
+
         </div>
-      )}
+
+      </div>
+
 
       {/* Google Consent Modal */}
       {showConsent && (
-        <div className="modal-overlay">
 
-          <div className="consent-modal">
+        <div
+          className="modal-overlay"
+          onClick={() => !loading && setShowConsent(false)}
+        >
+
+          <div
+            className="consent-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+
+            <button
+              type="button"
+              className="modal-close"
+              onClick={() => setShowConsent(false)}
+              disabled={loading}
+            >
+              ×
+            </button>
+
+
+            <div className="modal-google-icon">
+              G
+            </div>
 
             <h2>Continue with Google</h2>
 
-            <p>
-              To create or access your Vin account,
-              Vin will receive the following information
-              from Google:
+            <p className="modal-intro">
+              Vin will use your Google account to
+              create or sign you into your account.
             </p>
 
-            <h3>Information shared</h3>
 
-            <ul>
-              <li>Name</li>
-              <li>Email address</li>
-              <li>Profile picture</li>
-            </ul>
+            <div className="information-box">
 
-            <h3>How Vin uses it</h3>
+              <h3>Vin will receive</h3>
 
-            <p>
-              This information is used to create and
-              maintain your Vin account, identify you
-              when you sign in, and personalize your
-              experience.
-            </p>
+              <div className="information-row">
+                <span>✓</span>
+                <div>
+                  <strong>Name</strong>
+                  <p>Your Google account name</p>
+                </div>
+              </div>
 
-            <p>
-              <strong>Privacy:</strong> Vin does not
-              receive your Google password.
-            </p>
+              <div className="information-row">
+                <span>✓</span>
+                <div>
+                  <strong>Email address</strong>
+                  <p>Your Google account email</p>
+                </div>
+              </div>
 
-            <p>
+              <div className="information-row">
+                <span>✓</span>
+                <div>
+                  <strong>Profile picture</strong>
+                  <p>Your Google profile picture</p>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div className="privacy-note">
+
+              <strong>Your Google password is not shared.</strong>
+
+              <p>
+                Vin only receives the information
+                required to create and manage your account.
+              </p>
+
+            </div>
+
+
+            <p className="modal-terms">
               By continuing, you agree to Vin's
               Terms of Service and Privacy Policy.
             </p>
 
-            {/* Modal Buttons */}
+
             <div className="modal-buttons">
 
               <button
@@ -192,9 +324,12 @@ function Login({ onLogin }) {
             </div>
 
           </div>
+
         </div>
+
       )}
-    </>
+
+    </div>
   );
 }
 

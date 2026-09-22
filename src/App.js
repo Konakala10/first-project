@@ -4,13 +4,18 @@ import Home from "./components/Home";
 import "./App.css";
 
 function App() {
+
   const [user, setUser] = useState(null);
+
+  const handleLogin = (loggedInUser) => {
+    setUser(loggedInUser);
+  };
 
   if (user) {
     return <Home user={user} />;
   }
 
-  return <Login onLogin={setUser} />;
+  return <Login onLogin={handleLogin} />;
 }
 
 export default App;
